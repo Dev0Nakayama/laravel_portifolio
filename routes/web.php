@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\PublicacaoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[PublicacaoController::class,'index' ])->name('Home');
+Route::get('/Adicionar',[PublicacaoController::class,'create' ])->name('Create');
+Route::get('/Delete/{id}',[PublicacaoController::class,'destroy' ])->name('Delete');
+Route::get('/Edit/{id}',[PublicacaoController::class,'edit' ])->name('Edit');
+
+Route::post('/store',[PublicacaoController::class,'store' ])->name('Store');
+
