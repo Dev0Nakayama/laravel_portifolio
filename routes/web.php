@@ -22,3 +22,7 @@ Route::get('/Edit/{id}',[PublicacaoController::class,'edit' ])->name('Edit');
 
 Route::post('/store',[PublicacaoController::class,'store' ])->name('Store');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
